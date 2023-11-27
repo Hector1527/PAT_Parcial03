@@ -1,6 +1,7 @@
 #include "Ejercicio02.h"
 #include <unordered_map>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 vector<string>* Ejercicio02::findRepeatedDnaSequences(Node<char>* head)
@@ -17,7 +18,7 @@ vector<string>* Ejercicio02::findRepeatedDnaSequences(Node<char>* head)
 		Node<char>* temp = current;
 		for (int i = 0; i < max && temp; i++, temp = temp->next)
 		{
-			ADN += temp->value;
+			ADN.push_back(temp->value);
 		}
 
 		if (ADN.length() == max) {
@@ -31,6 +32,7 @@ vector<string>* Ejercicio02::findRepeatedDnaSequences(Node<char>* head)
 		else {
 			break;
 		}
+
 		current = current->next;
 	}
 
